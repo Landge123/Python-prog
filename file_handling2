@@ -1,0 +1,97 @@
+import os
+import csv
+print(os.getcwd())
+os.chdir(r"C:\Users\landg\OneDrive\Desktop - Copy\Desktop\unique\PythonClass")
+print(os.getcwd())
+
+# with open("dell.txt","x") as file:
+#     ...
+
+# with open("dell.txt","w") as file:
+#     print(file.name)
+#     file.close()
+#     print(file.close)
+
+# with open("Book.txt","w") as f1:
+    # f1.write("Adding the data into the book")
+    # f1.write("The Book")
+#     f1.writelines(["A\n","B\n","C\n","D\n"])
+
+# os.popen("Book.txt")
+
+# with open("Notebook.txt","a") as f3:
+    # f3.write("Hii\n")
+    # f3.write("Hello\n")
+    # f3.writelines(["A\n","B\n","C\n","D\n"])
+
+# os.popen("Notebook.txt")
+# print(f3.seek(7))
+# print(f3.tell())
+
+
+#Reading into the CSV file thier are two ways:
+# 1) Reader()
+# 2) DictReader
+
+#Writing into the CSV file thier are two ways:
+# 1) Writer()
+# 2) Dictwriter
+
+# A) Writer method: 
+# Syntax: with open("File_name","mode") as file_object:
+#            new_var=csv.writer(file_object)
+#            new_var.writerow(["data1","data2"])
+#            new_var.writerows([["data1","data2"]])                               
+
+# with open("PQR.csv","w",newline="") as f4:
+#     a=csv.writer(f4)
+    # a.writerow(["ID","Name","Salary"])
+    # a.writerow([1,"Omkar",1000])
+    # a.writerow(["A50","Ram","100"])
+#     a.writerows([["Employee_Name","Sal","Exp"],["Omkar","1000","2"],["Ram","2000","3"],["Rohit","3000","4"]])
+# os.popen("PQR.csv")
+
+#B) DictWriter:
+#Syntax: with open(filename.extension,mode,newline="") as file_object:
+#             new_var=csv.DictWeiter(file,Fieldnames=["column1","column2"])
+#             new-var.writeheader()
+#             new_var.writerow({"column1":"Data1","column2":"data2s"})
+
+
+# with open("cool.csv","w") as file:
+#     y=csv.DictWriter(file,fieldnames=["SID","SNAME","MOCKRATING"])
+#     y.writeheader()
+    # y.writerow({"SID":123,"SNAME":"ABC","MOCKRATING":1})
+    # y.writerow({"SID":124,"SNAME":"ABD","MOCKRATING":"*"})
+    # y.writerows([{"SID":125,"SNAME":"ABE","MOCKRATING":1},
+    #             {"SID":126,"SNAME":"ABF","MOCKRATING":"*"},
+    #             {"SID":127,"SNAME":"ABG","MOCKRATING":1}]) 
+# os.popen("cool.csv")
+
+
+# with open("cool.csv","a",newline="") as file:
+#     y=csv.DictWriter(file,fieldnames=["SID","SNAME","MOCKRATING"])
+#     y.writeheader()
+    # y.writerow({"SID":123,"SNAME":"ABC","MOCKRATING":1})
+    # y.writerow({"SID":124,"SNAME":"ABD","MOCKRATING":"*"})
+#     y.writerows([{"SID":125,"SNAME":"ABE","MOCKRATING":1},
+#                 {"SID":126,"SNAME":"ABF","MOCKRATING":"*"},
+#                 {"SID":127,"SNAME":"ABG","MOCKRATING":1}]) 
+
+# os.popen("cool.csv")
+
+
+# with open("cool.csv","r") as file:
+#     k=csv.DictReader(file)
+    # print(k) # We will get dictreader object 
+    # print(list(k))  # convert the object datatype to list
+
+    # for i in k:
+    #     print(i)
+
+with open("cool.csv","r") as file2:
+    h=csv.reader(file2)
+    # print(h)
+
+    for i in h:
+        print(i)

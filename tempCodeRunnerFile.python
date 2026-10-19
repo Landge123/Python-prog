@@ -1,0 +1,3 @@
+    # y.writerows([{"SID":125,"SNAME":"ABE","MOCKRATING":1},
+    #             {"SID":126,"SNAME":"ABF","MOCKRATING":"*"},
+    #             {"SID":127,"SNAME":"ABG","MOCKRATING":1}]
