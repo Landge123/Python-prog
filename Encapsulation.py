@@ -255,7 +255,7 @@ class Bank:
         return(getattr(self,"TE","empolyee_data"),
                getattr(self,"Mname","name_data"),
                getattr(self,"_Whours","Working_data"),
-               getattr(self,"__Bank__dept","dept_data"))
+               getattr(self,"_Bank__dept","dept_data"))
 
     def Setter(self,TE,Mname,Working_hours,dept):
         self.TE=TE
@@ -302,3 +302,42 @@ print(s.data)
 del s.data
 print(s.data)
 """      
+
+
+
+class Bank:
+    def __init__(self, TE, Mname, Working_hours, dept):
+        self.TE = TE
+        self.Mname = Mname
+        self._Whours = Working_hours
+        self.__dept = dept
+
+    @property
+    def Data(self):
+        return (getattr(self, "TE", "employee_data"),
+                getattr(self, "Mname", "name_data"),
+                getattr(self, "_Whours", "Working_data"),
+                getattr(self, "_Bank__dept", "dept_data"))
+
+    @Data.setter
+    def Data(self, values):
+        self.TE, self.Mname, self._Whours, self.__dept = values
+
+    @Data.deleter
+    def Data(self):
+        del self.Mname
+        del self.__dept
+
+b = Bank("Omkar", "Python", 9, "Development")
+print(b.Data)                          # ('Omkar', 'Python', 9, 'Development')
+
+b.Data = ("Amit", "Java", 8, "Testing")  # uses the setter
+print(b.Data)                          # ('Amit', 'Java', 8, 'Testing')
+
+del b.Data                             # uses the deleter
+print(b.Data)                            # ('Amit', 'name_data', 8, 'dept_data')
+
+
+
+    
+
