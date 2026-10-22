@@ -189,7 +189,7 @@ s.Getter()
 s.Deleter()'''
 
 
-
+"""
 class Amazon:
     def __init__(self,color,add):
         self.col=color
@@ -213,7 +213,92 @@ a.Setter("Blue","Mumbai")
 print(a.Getter())
 a.Deleter()
 print(a.Getter())
-        
+"""
 
 
-    
+#Private access specifier
+'''
+class Data:
+    __pin=1111
+    def show(self):
+        print(f'Person atm pin number is {self.__pin}')
+
+d=Data()
+d.show()
+# print(Data.__dict__)
+'''
+
+
+'''
+class Test:
+    __a=100
+    def display(self):
+        print(f'Varaible data is {self.__a}')
+
+t=Test()
+#accessing private varaible outside by using object
+print(t._Test__a)
+
+#Accessing private variable outside by using classname
+print(Test._Test__a)
+'''
+'''
+class Bank:
+    def __init__(self,TE,Mname,Working_hours,dept):
+        self.TE=TE
+        self.Mname=Mname
+        self._Whours=Working_hours
+        self.__dept=dept
+
+
+    def Getter(self):
+        return(getattr(self,"TE","empolyee_data"),
+               getattr(self,"Mname","name_data"),
+               getattr(self,"_Whours","Working_data"),
+               getattr(self,"__Bank__dept","dept_data"))
+
+    def Setter(self,TE,Mname,Working_hours,dept):
+        self.TE=TE
+        self.Mname=Mname
+        self._Whours=Working_hours
+        self.__dept=dept
+
+    def Deletter(self):
+        del self.Mname
+        del self.__dept
+
+k=Bank("Omkar","Python",9,"Development")
+print(k.Getter())
+k.Deletter()
+print(k.Getter())
+'''
+
+
+"""
+class Student:
+    def __init__(self,name):
+        self.name=name
+
+    @property     #------------> Getter
+    def data(self):
+            return(setattr(self,'name','name_deleted'))
+
+    @data.setter
+    def data(self,name):
+         self.name=name
+
+    @data.delattr
+    def data(self):
+         del self.name
+
+s=Student()
+print(s.data)
+s.data
+
+s=Student('xyz')
+print(s.data)
+s.data='ABC'
+print(s.data)
+del s.data
+print(s.data)
+"""      
